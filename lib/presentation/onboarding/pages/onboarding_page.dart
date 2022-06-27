@@ -13,10 +13,29 @@ class OnboardingPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            FitnestLogo(),
-            PrimaryButton(
-              text: 'Get started',
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.3),
+              child: const FitnestLogo(),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.3),
+              child: PrimaryButton(
+                gradient: const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFF9DCEFF),
+                    Color(0xFF92A3FD),
+                  ],
+                ),
+                width: 200,
+                height: 80,
+                onPressed: () {},
+                child: const Text('Get Started'),
+              ),
             ),
           ],
         ),

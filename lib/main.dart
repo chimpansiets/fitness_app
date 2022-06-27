@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: 'onboarding',
       routes: {
-        'onboarding': (context) => OnboardingPage(),
+        'onboarding': (context) => const OnboardingPage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

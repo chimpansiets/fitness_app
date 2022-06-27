@@ -11,14 +11,13 @@ class FitnestLogo extends StatelessWidget {
         RichText(
           text: TextSpan(
             children: [
-              TextSpan(
-                  text: 'Fitnest', style: FitnessTheme.poppins.headlineLarge),
+              TextSpan(text: 'Fitnest', style: FitnessTheme.poppins.headline1),
               TextSpan(
                 text: 'X',
                 style: FitnessTheme.poppins.headline1!.copyWith(
                   foreground: Paint()
                     ..shader = FitnessTheme.logoLinear
-                        .createShader(const Rect.fromLTWH(0, 0, 200, 70)),
+                        .createShader(const Rect.fromLTWH(0, 0, 50, 50)),
                 ),
               ),
             ],
