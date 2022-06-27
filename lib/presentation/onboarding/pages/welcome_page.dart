@@ -1,9 +1,10 @@
 import 'package:fitness_app/presentation/core/components/primary_button.dart';
 import 'package:fitness_app/presentation/onboarding/components/fitnest_logo.dart';
+import 'package:fitness_app/presentation/onboarding/pages/onboarding_first_page.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingPage extends StatelessWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,14 @@ class OnboardingPage extends StatelessWidget {
                 ),
                 width: 200,
                 height: 80,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OnboardingFirst(),
+                    ),
+                  );
+                },
                 child: const Text('Get Started'),
               ),
             ),

@@ -22,7 +22,15 @@ class FitnestLogo extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        Text(
+          'Everybody Can Train',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.normal,
+            color: FitnessTheme.gray1,
+          ),
+        ),
       ],
     );
   }

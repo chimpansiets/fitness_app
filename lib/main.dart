@@ -1,4 +1,5 @@
-import 'package:fitness_app/presentation/onboarding/pages/onboarding_page.dart';
+import 'package:fitness_app/presentation/onboarding/pages/welcome_page.dart';
+import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,10 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: 'onboarding',
       routes: {
-        'onboarding': (context) => const OnboardingPage(),
+        'onboarding': (context) => const WelcomeScreen(),
       },
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        textTheme: FitnessTheme.poppins,
       ),
     );
   }

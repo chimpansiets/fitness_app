@@ -23,10 +23,11 @@ class FitnessTheme {
   static Color borderColor = const Color(0xFFF7F8F8);
 
   static TextTheme poppins = GoogleFonts.poppinsTextTheme(
-    const TextTheme(
+    TextTheme(
       headline1: TextStyle(
         fontSize: 26,
         fontWeight: FontWeight.bold,
+        color: black,
       ),
     ),
   );

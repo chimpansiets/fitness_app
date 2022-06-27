@@ -1,7 +1,4 @@
-import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class PrimaryButton extends StatelessWidget {
   final Widget child;
@@ -19,18 +16,20 @@ class PrimaryButton extends StatelessWidget {
     this.height = 50.0,
   }) : super(key: key);
 
+  static const buttonBorderRadius = BorderRadius.all(Radius.circular(99));
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: 50.0,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(99)),
+        borderRadius: buttonBorderRadius,
         gradient: gradient,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade500,
-            offset: Offset(0.0, 1.5),
+            offset: const Offset(0.0, 1.5),
             blurRadius: 1.5,
           ),
         ],
@@ -38,6 +37,7 @@ class PrimaryButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
+          borderRadius: buttonBorderRadius,
           onTap: onPressed,
           child: Center(
             child: child,
