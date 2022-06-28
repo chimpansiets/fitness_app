@@ -1,8 +1,10 @@
+import 'package:fitness_app/injection.dart';
 import 'package:fitness_app/presentation/onboarding/pages/welcome_page.dart';
 import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  setup();
   runApp(const MyApp());
 }
 

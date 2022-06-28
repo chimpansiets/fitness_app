@@ -1,7 +1,9 @@
+import 'package:fitness_app/application/onboarding/onboarding_cubit.dart';
 import 'package:fitness_app/presentation/core/components/primary_button.dart';
 import 'package:fitness_app/presentation/onboarding/components/fitnest_logo.dart';
 import 'package:fitness_app/presentation/onboarding/pages/onboarding_first_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);

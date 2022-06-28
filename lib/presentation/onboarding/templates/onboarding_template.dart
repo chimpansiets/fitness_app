@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 class OnboardingTemplate extends StatelessWidget {
   final Widget topSection;
   final Widget middleSection;
-  final Function()? onPressed;
-
+  final Widget bottomSection;
   const OnboardingTemplate({
     Key? key,
     required this.topSection,
     required this.middleSection,
-    this.onPressed,
+    required this.bottomSection,
   }) : super(key: key);
 
   @override
@@ -18,10 +17,16 @@ class OnboardingTemplate extends StatelessWidget {
       body: Column(
         children: [
           topSection,
-          middleSection,
-          IconButton(
-            onPressed: onPressed,
-            icon: const Icon(Icons.navigate_next),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.3,
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            child: middleSection,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.65, top: 10),
+            child: bottomSection,
           ),
         ],
       ),
