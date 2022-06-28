@@ -16,11 +16,22 @@ class OnboardingCubit extends Cubit<OnboardingState> {
           finished: true,
         ),
       );
+    } else {
+      emit(
+        state.copyWith(
+          progress: state.progress + 0.25,
+          page: state.page + 1,
+        ),
+      );
     }
+  }
+
+  void reset() {
     emit(
       state.copyWith(
-        progress: state.progress + 0.25,
-        page: state.page + 1,
+        finished: false,
+        progress: 0.25,
+        page: 1,
       ),
     );
   }

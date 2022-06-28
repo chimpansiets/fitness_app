@@ -1,4 +1,5 @@
 import 'package:fitness_app/application/onboarding/onboarding_cubit.dart';
+import 'package:fitness_app/injection.dart';
 import 'package:fitness_app/presentation/core/components/primary_button.dart';
 import 'package:fitness_app/presentation/onboarding/components/fitnest_logo.dart';
 import 'package:fitness_app/presentation/onboarding/pages/onboarding_first_page.dart';
@@ -37,10 +38,14 @@ class WelcomeScreen extends StatelessWidget {
                 width: 200,
                 height: 80,
                 onPressed: () {
+                  getIt<OnboardingCubit>().reset();
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => OnboardingFirst(),
+                      builder: (context) {
+                        return OnboardingFirst();
+                      },
                     ),
                   );
                 },
