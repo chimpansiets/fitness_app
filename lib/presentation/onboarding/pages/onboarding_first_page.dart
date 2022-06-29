@@ -1,8 +1,8 @@
 import 'package:fitness_app/application/onboarding/onboarding_cubit.dart';
 import 'package:fitness_app/injection.dart';
+import 'package:fitness_app/presentation/authentication/pages/sign_up_page.dart';
 import 'package:fitness_app/presentation/core/components/next_progress_button.dart';
 import 'package:fitness_app/presentation/onboarding/templates/onboarding_template.dart';
-import 'package:fitness_app/presentation/sign_up/pages/sign_up_page.dart';
 import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

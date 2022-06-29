@@ -1,9 +1,11 @@
+import 'package:fitness_app/application/authentication/authentication_cubit.dart';
+import 'package:fitness_app/presentation/authentication/components/auth_icon.dart';
+import 'package:fitness_app/presentation/authentication/components/login_form_field.dart';
 import 'package:fitness_app/presentation/core/components/primary_button.dart';
 import 'package:fitness_app/presentation/core/templates/sign_form_template.dart';
-import 'package:fitness_app/presentation/sign_up/components/auth_icon.dart';
-import 'package:fitness_app/presentation/sign_up/components/login_form_field.dart';
 import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key: key);
@@ -89,7 +91,11 @@ class SignUpPage extends StatelessWidget {
           ],
         ),
         onPressed: () {
-          print("wadduppppp");
+          AuthenticationCubit authCubit =
+              BlocProvider.of<AuthenticationCubit>(context);
+
+          authCubit.registerEmailAndPasswordUseCase(
+              emailController.text, passwordController.text);
         },
         child: const Text('Register'),
       ),
