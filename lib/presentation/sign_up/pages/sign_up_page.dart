@@ -1,4 +1,6 @@
+import 'package:fitness_app/presentation/core/components/primary_button.dart';
 import 'package:fitness_app/presentation/core/templates/sign_form_template.dart';
+import 'package:fitness_app/presentation/sign_up/components/auth_icon.dart';
 import 'package:fitness_app/presentation/sign_up/components/login_form_field.dart';
 import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -36,11 +38,12 @@ class SignUpPage extends StatelessWidget {
         ],
       ),
       formSection: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: LoginFormField(
                 hintText: 'First name',
                 icon: Icons.person,
@@ -48,7 +51,7 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: LoginFormField(
                 hintText: 'Last name',
                 icon: Icons.person,
@@ -56,7 +59,7 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: LoginFormField(
                 hintText: 'Email',
                 icon: Icons.mail,
@@ -64,7 +67,7 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: LoginFormField(
                 hideText: true,
                 hintText: 'Password',
@@ -75,8 +78,64 @@ class SignUpPage extends StatelessWidget {
           ],
         ),
       ),
-      buttonSection: Container(),
-      optionsSection: Container(),
+      buttonSection: PrimaryButton(
+        height: 80,
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFF9DCEFF),
+            Color(0xFF92A3FD),
+          ],
+        ),
+        onPressed: () {
+          print("wadduppppp");
+        },
+        child: const Text('Register'),
+      ),
+      optionsSection: Container(
+        height: MediaQuery.of(context).size.height * 0.15,
+        width: MediaQuery.of(context).size.width * 0.9,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AuthIcon(AuthIcons.google),
+                const SizedBox(width: 40),
+                AuthIcon(AuthIcons.facebook),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Already have an account? ',
+                  style: TextStyle(
+                    color: FitnessTheme.black,
+                    fontSize: 14,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // TODO: Route to login page
+                  },
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 14,
+                      foreground: Paint()
+                        ..shader = FitnessTheme.purpleLinear.createShader(
+                          Rect.fromLTWH(0, 0, 50, 50),
+                        ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

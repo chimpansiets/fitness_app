@@ -29,14 +29,25 @@ class SignFormTemplate extends StatelessWidget {
             child: headerSection,
           ),
           Container(
-            color: Colors.orange.withOpacity(0.2),
-            width: screenSize.width,
-            height: screenSize.height * 0.5,
+            height: screenSize.height * 0.50,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: formSection,
           ),
-          // buttonSection,
-          // Divider(),
-          // optionsSection,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+            child: buttonSection,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25.0),
+            child: Divider(
+              thickness: 1.5,
+            ),
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+            child: optionsSection,
+          ),
         ],
       ),
     );
