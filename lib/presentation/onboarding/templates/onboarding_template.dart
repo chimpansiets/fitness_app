@@ -16,16 +16,19 @@ class OnboardingTemplate extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          topSection,
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: topSection,
+          ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.25,
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             child: middleSection,
           ),
           Padding(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.65, top: 10),
+            padding:
+                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.65),
             child: bottomSection,
           ),
         ],

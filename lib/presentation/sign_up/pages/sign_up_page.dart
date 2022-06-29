@@ -93,10 +93,11 @@ class SignUpPage extends StatelessWidget {
         },
         child: const Text('Register'),
       ),
-      optionsSection: Container(
+      optionsSection: SizedBox(
         height: MediaQuery.of(context).size.height * 0.15,
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -110,11 +111,14 @@ class SignUpPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Already have an account? ',
+                  'Already have an account?',
                   style: TextStyle(
                     color: FitnessTheme.black,
                     fontSize: 14,
                   ),
+                ),
+                const SizedBox(
+                  width: 10,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -126,7 +130,7 @@ class SignUpPage extends StatelessWidget {
                       fontSize: 14,
                       foreground: Paint()
                         ..shader = FitnessTheme.purpleLinear.createShader(
-                          Rect.fromLTWH(0, 0, 50, 50),
+                          const Rect.fromLTWH(0, 0, 25, 25),
                         ),
                     ),
                   ),

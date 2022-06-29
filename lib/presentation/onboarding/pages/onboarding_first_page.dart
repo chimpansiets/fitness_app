@@ -50,7 +50,6 @@ class OnboardingFirst extends StatelessWidget {
         return OnboardingTemplate(
           topSection: SvgPicture.asset(
             'assets/images/woman-holding-phone.svg',
-            width: MediaQuery.of(context).size.width,
           ),
           middleSection: Column(
             children: [
