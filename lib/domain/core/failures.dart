@@ -8,4 +8,6 @@ class ValueFailure<T> with _$ValueFailure<T> {
       InvalidEmail<T>;
   const factory ValueFailure.shortPassword({required T failedValue}) =
       ShortPassword<T>;
+  const factory ValueFailure.noPutinAllowed({required T failedValue}) =
+      NoPutinAllowed<T>;
 }

@@ -16,20 +16,27 @@ part 'authentication_cubit.freezed.dart';
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationState.initial());
 
+  void nameChanged(String name) {
+    emit(
+      state.copyWith(
+        name: Name(name),
+      ),
+    );
+  }
+
   void emailChanged(String email) {
     emit(
       state.copyWith(
-        email: EmailAddress(emailString: email),
+        email: EmailAddress(email),
         authFailureOrSuccessOption: none(),
       ),
     );
-    print("Email: ${state.email.value}");
   }
 
   void passwordChanged(String password) {
     emit(
       state.copyWith(
-        password: Password(passwordString: password),
+        password: Password(password),
         authFailureOrSuccessOption: none(),
       ),
     );
@@ -40,8 +47,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     emit(
       state.copyWith(
-        email: EmailAddress(emailString: email),
-        password: Password(passwordString: password),
+        email: EmailAddress(email),
+        password: Password(password),
+        showErrorMessages: false,
       ),
     );
 
@@ -70,8 +78,5 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         ),
       );
     }
-
-    print('${state.email.value}, ${state.password.value}');
-    print(state.authFailureOrSuccessOption);
   }
 }

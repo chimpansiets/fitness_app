@@ -256,6 +256,7 @@ abstract class RegisterEmailAndPasswordUseCase implements AuthenticationEvent {
 
 /// @nodoc
 mixin _$AuthenticationState {
+  Name get name => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
@@ -274,7 +275,8 @@ abstract class $AuthenticationStateCopyWith<$Res> {
           AuthenticationState value, $Res Function(AuthenticationState) then) =
       _$AuthenticationStateCopyWithImpl<$Res>;
   $Res call(
-      {EmailAddress email,
+      {Name name,
+      EmailAddress email,
       Password password,
       bool showErrorMessages,
       bool isSubmitting,
@@ -292,6 +294,7 @@ class _$AuthenticationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? showErrorMessages = freezed,
@@ -299,6 +302,10 @@ class _$AuthenticationStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -331,7 +338,8 @@ abstract class _$$_AuthenticationStateCopyWith<$Res>
       __$$_AuthenticationStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {EmailAddress email,
+      {Name name,
+      EmailAddress email,
       Password password,
       bool showErrorMessages,
       bool isSubmitting,
@@ -351,6 +359,7 @@ class __$$_AuthenticationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? showErrorMessages = freezed,
@@ -358,6 +367,10 @@ class __$$_AuthenticationStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_$_AuthenticationState(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -386,12 +399,15 @@ class __$$_AuthenticationStateCopyWithImpl<$Res>
 
 class _$_AuthenticationState implements _AuthenticationState {
   const _$_AuthenticationState(
-      {required this.email,
+      {required this.name,
+      required this.email,
       required this.password,
       required this.showErrorMessages,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
 
+  @override
+  final Name name;
   @override
   final EmailAddress email;
   @override
@@ -405,7 +421,7 @@ class _$_AuthenticationState implements _AuthenticationState {
 
   @override
   String toString() {
-    return 'AuthenticationState(email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'AuthenticationState(name: $name, email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -413,6 +429,7 @@ class _$_AuthenticationState implements _AuthenticationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AuthenticationState &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
@@ -426,6 +443,7 @@ class _$_AuthenticationState implements _AuthenticationState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(showErrorMessages),
@@ -441,13 +459,16 @@ class _$_AuthenticationState implements _AuthenticationState {
 
 abstract class _AuthenticationState implements AuthenticationState {
   const factory _AuthenticationState(
-      {required final EmailAddress email,
+      {required final Name name,
+      required final EmailAddress email,
       required final Password password,
       required final bool showErrorMessages,
       required final bool isSubmitting,
       required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_AuthenticationState;
 
+  @override
+  Name get name => throw _privateConstructorUsedError;
   @override
   EmailAddress get email => throw _privateConstructorUsedError;
   @override

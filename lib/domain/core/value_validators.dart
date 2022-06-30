@@ -1,6 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:fitness_app/domain/core/failures.dart';
 
+Either<ValueFailure<String>, String> validateName(String input) {
+  if (input.toLowerCase() == 'putin') {
+    return left(ValueFailure.noPutinAllowed(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   // Maybe not the most robust way of email validation but it's good enough
   const emailRegex =
