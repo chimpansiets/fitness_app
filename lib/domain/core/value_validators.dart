@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:fitness_app/domain/core/failures.dart';
 
 Either<ValueFailure<String>, String> validateName(String input) {
-  if (input.toLowerCase() == 'putin') {
+  if (input.toLowerCase().contains('putin')) {
     return left(ValueFailure.noPutinAllowed(failedValue: input));
   } else {
     return right(input);

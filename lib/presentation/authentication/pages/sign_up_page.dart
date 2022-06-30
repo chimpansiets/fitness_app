@@ -78,13 +78,6 @@ class SignUpPage extends StatelessWidget {
                     hintText: 'First name',
                     icon: Icons.person,
                     firstNameController: firstNameController,
-                    onChanged: (value) {
-                      getIt<AuthenticationCubit>().nameChanged(value);
-                    },
-                    validator: state.name.value.fold(
-                      (l) => (_) => 'No Putin Allowed',
-                      (r) => (_) => null,
-                    ),
                   ),
                 ),
                 Padding(
@@ -93,6 +86,13 @@ class SignUpPage extends StatelessWidget {
                     hintText: 'Last name',
                     icon: Icons.person,
                     firstNameController: lastNameController,
+                    onChanged: (value) {
+                      getIt<AuthenticationCubit>().nameChanged(value);
+                    },
+                    validator: state.name.value.fold(
+                      (l) => (_) => 'Khuylo',
+                      (r) => (_) => null,
+                    ),
                   ),
                 ),
                 Padding(
