@@ -1,7 +1,7 @@
 part of 'onboarding_cubit.dart';
 
 @freezed
-abstract class OnboardingState with _$OnboardingState {
+class OnboardingState with _$OnboardingState {
   const factory OnboardingState({
     required int page,
     required double progress,

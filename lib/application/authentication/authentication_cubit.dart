@@ -1,4 +1,6 @@
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitness_app/domain/authentication/auth_failure.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:freezed/builder.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -15,7 +17,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     // TODO: Send the creation to a repository and catch errors from firebase service there.
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
-    UserCredential user = await firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: password);
+    // Either<AuthFailure, Unit> user =
   }
 }
