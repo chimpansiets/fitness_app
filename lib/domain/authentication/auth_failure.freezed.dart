@@ -20,18 +20,24 @@ mixin _$AuthFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() noInternet,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$AuthFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(NoInternet value) noInternet,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(ServerError value) serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,6 +127,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() noInternet,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() serverError,
   }) {
     return cancelledByUser();
   }
@@ -124,6 +138,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
   }) {
     return cancelledByUser?.call();
   }
@@ -133,6 +149,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -146,6 +164,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(NoInternet value) noInternet,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(ServerError value) serverError,
   }) {
     return cancelledByUser(this);
   }
@@ -155,6 +175,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -164,6 +186,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -219,6 +243,8 @@ class _$NoInternet implements NoInternet {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() noInternet,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() serverError,
   }) {
     return noInternet();
   }
@@ -228,6 +254,8 @@ class _$NoInternet implements NoInternet {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
   }) {
     return noInternet?.call();
   }
@@ -237,6 +265,8 @@ class _$NoInternet implements NoInternet {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -250,6 +280,8 @@ class _$NoInternet implements NoInternet {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(NoInternet value) noInternet,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(ServerError value) serverError,
   }) {
     return noInternet(this);
   }
@@ -259,6 +291,8 @@ class _$NoInternet implements NoInternet {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
   }) {
     return noInternet?.call(this);
   }
@@ -268,6 +302,8 @@ class _$NoInternet implements NoInternet {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -279,4 +315,237 @@ class _$NoInternet implements NoInternet {
 
 abstract class NoInternet implements AuthFailure {
   const factory NoInternet() = _$NoInternet;
+}
+
+/// @nodoc
+abstract class _$$EmailAlreadyInUseCopyWith<$Res> {
+  factory _$$EmailAlreadyInUseCopyWith(
+          _$EmailAlreadyInUse value, $Res Function(_$EmailAlreadyInUse) then) =
+      __$$EmailAlreadyInUseCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmailAlreadyInUseCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$$EmailAlreadyInUseCopyWith<$Res> {
+  __$$EmailAlreadyInUseCopyWithImpl(
+      _$EmailAlreadyInUse _value, $Res Function(_$EmailAlreadyInUse) _then)
+      : super(_value, (v) => _then(v as _$EmailAlreadyInUse));
+
+  @override
+  _$EmailAlreadyInUse get _value => super._value as _$EmailAlreadyInUse;
+}
+
+/// @nodoc
+
+class _$EmailAlreadyInUse implements EmailAlreadyInUse {
+  const _$EmailAlreadyInUse();
+
+  @override
+  String toString() {
+    return 'AuthFailure.emailAlreadyInUse()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmailAlreadyInUse);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() noInternet,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() serverError,
+  }) {
+    return emailAlreadyInUse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
+  }) {
+    return emailAlreadyInUse?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
+    required TResult orElse(),
+  }) {
+    if (emailAlreadyInUse != null) {
+      return emailAlreadyInUse();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(NoInternet value) noInternet,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(ServerError value) serverError,
+  }) {
+    return emailAlreadyInUse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
+  }) {
+    return emailAlreadyInUse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
+    required TResult orElse(),
+  }) {
+    if (emailAlreadyInUse != null) {
+      return emailAlreadyInUse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmailAlreadyInUse implements AuthFailure {
+  const factory EmailAlreadyInUse() = _$EmailAlreadyInUse;
+}
+
+/// @nodoc
+abstract class _$$ServerErrorCopyWith<$Res> {
+  factory _$$ServerErrorCopyWith(
+          _$ServerError value, $Res Function(_$ServerError) then) =
+      __$$ServerErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$$ServerErrorCopyWith<$Res> {
+  __$$ServerErrorCopyWithImpl(
+      _$ServerError _value, $Res Function(_$ServerError) _then)
+      : super(_value, (v) => _then(v as _$ServerError));
+
+  @override
+  _$ServerError get _value => super._value as _$ServerError;
+}
+
+/// @nodoc
+
+class _$ServerError implements ServerError {
+  const _$ServerError();
+
+  @override
+  String toString() {
+    return 'AuthFailure.serverError()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ServerError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() noInternet,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() serverError,
+  }) {
+    return serverError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
+  }) {
+    return serverError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? noInternet,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? serverError,
+    required TResult orElse(),
+  }) {
+    if (serverError != null) {
+      return serverError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(NoInternet value) noInternet,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(ServerError value) serverError,
+  }) {
+    return serverError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
+  }) {
+    return serverError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(ServerError value)? serverError,
+    required TResult orElse(),
+  }) {
+    if (serverError != null) {
+      return serverError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ServerError implements AuthFailure {
+  const factory ServerError() = _$ServerError;
 }

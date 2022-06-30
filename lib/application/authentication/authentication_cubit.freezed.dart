@@ -255,13 +255,30 @@ abstract class RegisterEmailAndPasswordUseCase implements AuthenticationEvent {
 }
 
 /// @nodoc
-mixin _$AuthenticationState {}
+mixin _$AuthenticationState {
+  EmailAddress get email => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AuthenticationStateCopyWith<AuthenticationState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $AuthenticationStateCopyWith<$Res> {
   factory $AuthenticationStateCopyWith(
           AuthenticationState value, $Res Function(AuthenticationState) then) =
       _$AuthenticationStateCopyWithImpl<$Res>;
+  $Res call(
+      {EmailAddress email,
+      Password password,
+      bool showErrorMessages,
+      bool isSubmitting,
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -272,13 +289,53 @@ class _$AuthenticationStateCopyWithImpl<$Res>
   final AuthenticationState _value;
   // ignore: unused_field
   final $Res Function(AuthenticationState) _then;
+
+  @override
+  $Res call({
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? showErrorMessages = freezed,
+    Object? isSubmitting = freezed,
+    Object? authFailureOrSuccessOption = freezed,
+  }) {
+    return _then(_value.copyWith(
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+          ? _value.authFailureOrSuccessOption
+          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$$_AuthenticationStateCopyWith<$Res> {
+abstract class _$$_AuthenticationStateCopyWith<$Res>
+    implements $AuthenticationStateCopyWith<$Res> {
   factory _$$_AuthenticationStateCopyWith(_$_AuthenticationState value,
           $Res Function(_$_AuthenticationState) then) =
       __$$_AuthenticationStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {EmailAddress email,
+      Password password,
+      bool showErrorMessages,
+      bool isSubmitting,
+      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -291,28 +348,119 @@ class __$$_AuthenticationStateCopyWithImpl<$Res>
 
   @override
   _$_AuthenticationState get _value => super._value as _$_AuthenticationState;
+
+  @override
+  $Res call({
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? showErrorMessages = freezed,
+    Object? isSubmitting = freezed,
+    Object? authFailureOrSuccessOption = freezed,
+  }) {
+    return _then(_$_AuthenticationState(
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+          ? _value.authFailureOrSuccessOption
+          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_AuthenticationState implements _AuthenticationState {
-  const _$_AuthenticationState();
+  const _$_AuthenticationState(
+      {required this.email,
+      required this.password,
+      required this.showErrorMessages,
+      required this.isSubmitting,
+      required this.authFailureOrSuccessOption});
+
+  @override
+  final EmailAddress email;
+  @override
+  final Password password;
+  @override
+  final bool showErrorMessages;
+  @override
+  final bool isSubmitting;
+  @override
+  final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AuthenticationState()';
+    return 'AuthenticationState(email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AuthenticationState);
+        (other.runtimeType == runtimeType &&
+            other is _$_AuthenticationState &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality().equals(
+                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_AuthenticationStateCopyWith<_$_AuthenticationState> get copyWith =>
+      __$$_AuthenticationStateCopyWithImpl<_$_AuthenticationState>(
+          this, _$identity);
 }
 
 abstract class _AuthenticationState implements AuthenticationState {
-  const factory _AuthenticationState() = _$_AuthenticationState;
+  const factory _AuthenticationState(
+      {required final EmailAddress email,
+      required final Password password,
+      required final bool showErrorMessages,
+      required final bool isSubmitting,
+      required final Option<Either<AuthFailure, Unit>>
+          authFailureOrSuccessOption}) = _$_AuthenticationState;
+
+  @override
+  EmailAddress get email => throw _privateConstructorUsedError;
+  @override
+  Password get password => throw _privateConstructorUsedError;
+  @override
+  bool get showErrorMessages => throw _privateConstructorUsedError;
+  @override
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  @override
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AuthenticationStateCopyWith<_$_AuthenticationState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

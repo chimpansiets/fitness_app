@@ -66,6 +66,19 @@ class SignUpPage extends StatelessWidget {
                 hintText: 'Email',
                 icon: Icons.mail,
                 firstNameController: emailController,
+                validator: BlocProvider.of<AuthenticationCubit>(context)
+                    .state
+                    .email
+                    .value
+                    .fold(
+                  (l) {
+                    l.maybeMap(
+                      invalidEmail: (_) => 'Invalid Email',
+                      orElse: () => null,
+                    );
+                  },
+                  (_) => null,
+                ),
               ),
             ),
             Padding(

@@ -2,7 +2,19 @@ part of 'authentication_cubit.dart';
 
 @freezed
 class AuthenticationState with _$AuthenticationState {
-  const factory AuthenticationState() = _AuthenticationState;
+  const factory AuthenticationState({
+    required EmailAddress email,
+    required Password password,
+    required bool showErrorMessages,
+    required bool isSubmitting,
+    required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+  }) = _AuthenticationState;
 
-  factory AuthenticationState.initial() => const AuthenticationState();
+  factory AuthenticationState.initial() => AuthenticationState(
+        email: const EmailAddress(emailString: ''),
+        password: const Password(passwordString: ''),
+        showErrorMessages: false,
+        isSubmitting: false,
+        authFailureOrSuccessOption: none(),
+      );
 }

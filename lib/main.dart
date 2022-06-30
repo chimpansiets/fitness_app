@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fitness_app/application/authentication/authentication_cubit.dart';
 import 'package:fitness_app/application/onboarding/onboarding_cubit.dart';
 import 'package:fitness_app/firebase_options.dart';
 import 'package:fitness_app/injection.dart';
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<OnboardingCubit>(),
         ),
+        BlocProvider(
+          create: (context) => getIt<AuthenticationCubit>(),
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
