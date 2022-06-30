@@ -44,6 +44,7 @@ dependencies:
   firebase_auth: ^3.3.20
   firebase_core: ^1.18.0
   dartz: ^0.10.1
+  another_flushbar: ^1.10.29
 
 dev_dependencies:
   flutter_test:

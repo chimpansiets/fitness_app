@@ -16,16 +16,38 @@ part 'authentication_cubit.freezed.dart';
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationState.initial());
 
-  void registerEmailAndPasswordUseCase(String email, String password) async {
-    // TODO: Send the creation to a repository and catch errors from firebase service there.
+  void emailChanged(String email) {
+    emit(
+      state.copyWith(
+        email: EmailAddress(emailString: email),
+        authFailureOrSuccessOption: none(),
+      ),
+    );
+    print("Email: ${state.email.value}");
+  }
 
+  void passwordChanged(String password) {
+    emit(
+      state.copyWith(
+        password: Password(passwordString: password),
+        authFailureOrSuccessOption: none(),
+      ),
+    );
+  }
+
+  void registerEmailAndPasswordUseCase(String email, String password) async {
     FirebaseAuthRepository repository = getIt<FirebaseAuthRepository>();
+
+    emit(
+      state.copyWith(
+        email: EmailAddress(emailString: email),
+        password: Password(passwordString: password),
+      ),
+    );
 
     if (state.email.isValid() && state.password.isValid()) {
       emit(
         state.copyWith(
-          email: EmailAddress(emailString: email),
-          password: Password(passwordString: password),
           isSubmitting: true,
         ),
       );
@@ -37,11 +59,19 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(
         state.copyWith(
           isSubmitting: false,
+          showErrorMessages: true,
           authFailureOrSuccessOption: some(failureOrSuccess),
+        ),
+      );
+    } else {
+      emit(
+        state.copyWith(
+          showErrorMessages: true,
         ),
       );
     }
 
+    print('${state.email.value}, ${state.password.value}');
     print(state.authFailureOrSuccessOption);
   }
 }

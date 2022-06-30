@@ -8,6 +8,7 @@ class LoginFormField extends StatelessWidget {
     required this.hintText,
     required this.firstNameController,
     this.hideText = false,
+    this.onChanged,
     this.validator,
   }) : super(key: key);
 
@@ -16,11 +17,14 @@ class LoginFormField extends StatelessWidget {
   final IconData icon;
   final String hintText;
   final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
+      onChanged: onChanged,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       obscureText: hideText,
       decoration: InputDecoration(
         icon: Icon(

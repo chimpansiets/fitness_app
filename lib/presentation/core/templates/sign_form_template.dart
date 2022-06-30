@@ -29,7 +29,7 @@ class SignFormTemplate extends StatelessWidget {
             child: headerSection,
           ),
           Container(
-            height: screenSize.height * 0.50,
+            height: screenSize.height * 0.55,
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: formSection,
           ),

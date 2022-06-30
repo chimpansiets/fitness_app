@@ -17,8 +17,8 @@ class FirebaseAuthRepository implements IAuthRepository {
     required EmailAddress email,
     required Password password,
   }) async {
-    final emailAddressString = email.getOrElse('INVALID EMAIL');
-    final passwordString = password.getOrElse('INVALID PASSWORD');
+    final emailAddressString = email.value.getOrElse(() => 'INVALID EMAIL');
+    final passwordString = password.value.getOrElse(() => 'INVALID PASSWORD');
 
     try {
       return await _firebaseAuth
