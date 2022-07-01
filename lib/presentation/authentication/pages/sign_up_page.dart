@@ -37,6 +37,10 @@ class SignUpPage extends StatelessWidget {
                     serverError: (_) => 'Server Error',
                     emailAlreadyInUse: (_) => 'Email already in use',
                     noInternet: (_) => 'No internet',
+                    wrongPassword: (_) => 'Wrong password',
+                    invalidEmail: (_) => 'Invalid email',
+                    userDisabled: (_) => 'User disabled',
+                    userNotFound: (_) => 'User not found',
                   ),
                 ).show(context);
               }
@@ -122,8 +126,10 @@ class SignUpPage extends StatelessWidget {
             AuthenticationCubit authCubit =
                 BlocProvider.of<AuthenticationCubit>(context);
 
-            authCubit.registerEmailAndPasswordUseCase(
+            authCubit.registerEmailAndPassword(
                 emailController.text, passwordController.text);
+
+            // TODO: Route to profile completion process on success
           },
           child: const Text('Register'),
         ),

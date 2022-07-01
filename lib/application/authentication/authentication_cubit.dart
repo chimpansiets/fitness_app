@@ -46,16 +46,16 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
   void registerWithFacebook() {}
 
-  void registerEmailAndPasswordUseCase(String email, String password) async {
+  void registerEmailAndPassword(String email, String password) async {
     FirebaseAuthRepository repository = getIt<FirebaseAuthRepository>();
 
-    emit(
-      state.copyWith(
-        email: EmailAddress(email),
-        password: Password(password),
-        showErrorMessages: false,
-      ),
-    );
+    // emit(
+    //   state.copyWith(
+    //     email: EmailAddress(email),
+    //     password: Password(password),
+    //     showErrorMessages: false,
+    //   ),
+    // );
 
     if (state.email.isValid() && state.password.isValid()) {
       emit(
@@ -82,5 +82,34 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         ),
       );
     }
+  }
+
+  void loginEmailAndPassword(String email, String password) async {
+    FirebaseAuthRepository authRepository = getIt<FirebaseAuthRepository>();
+
+    emit(
+      state.copyWith(
+        isSubmitting: true,
+      ),
+    );
+
+    final failureOrSuccess = await authRepository.loginEmailAndPassword(
+        email: state.email, password: state.password);
+
+    failureOrSuccess.fold((l) {
+      emit(
+        state.copyWith(
+          authFailureOrSuccessOption: some(failureOrSuccess),
+          showErrorMessages: true,
+        ),
+      );
+    }, (r) {
+      emit(
+        state.copyWith(
+          authFailureOrSuccessOption: some(failureOrSuccess),
+          showErrorMessages: false,
+        ),
+      );
+    });
   }
 }

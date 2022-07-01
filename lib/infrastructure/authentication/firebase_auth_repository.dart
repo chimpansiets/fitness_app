@@ -40,9 +40,25 @@ class FirebaseAuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> loginEmailAndPassword(
-      {required EmailAddress email, required Password password}) {
-    // TODO: implement loginEmailAndPassword
-    throw UnimplementedError();
+      {required EmailAddress email, required Password password}) async {
+    try {
+      return await _firebaseAuth
+          .signInWithEmailAndPassword(
+              email: email.emailString, password: password.passwordString)
+          .then(
+            (value) => right(unit),
+          );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email') {
+        return left(const AuthFailure.invalidEmail());
+      } else if (e.code == 'user-disabled') {
+        return left(const AuthFailure.userDisabled());
+      } else if (e.code == 'user-not-found') {
+        return left(const AuthFailure.userNotFound());
+      } else {
+        return left(const AuthFailure.wrongPassword());
+      }
+    }
   }
 
   @override
