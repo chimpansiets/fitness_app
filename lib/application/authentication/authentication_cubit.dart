@@ -42,6 +42,10 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     );
   }
 
+  void registerWithGoogle() {}
+
+  void registerWithFacebook() {}
+
   void registerEmailAndPasswordUseCase(String email, String password) async {
     FirebaseAuthRepository repository = getIt<FirebaseAuthRepository>();
 

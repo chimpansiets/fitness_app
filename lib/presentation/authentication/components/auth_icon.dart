@@ -1,3 +1,5 @@
+import 'package:fitness_app/application/authentication/authentication_cubit.dart';
+import 'package:fitness_app/injection.dart';
 import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,6 +34,12 @@ class AuthIcon extends StatelessWidget {
       ),
       onTap: () {
         // TODO: Add logic using cubit's
+        AuthenticationCubit authCubit = getIt<AuthenticationCubit>();
+        if (type == AuthIcons.google) {
+          authCubit.registerWithGoogle();
+        } else {
+          authCubit.registerWithFacebook();
+        }
       },
     );
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SignFormTemplate extends StatelessWidget {
+class AuthFormTemplate extends StatelessWidget {
   final Widget headerSection;
   final Widget formSection;
   final Widget buttonSection;
   final Widget optionsSection;
 
-  const SignFormTemplate({
+  const AuthFormTemplate({
     Key? key,
     required this.headerSection,
     required this.formSection,
@@ -30,7 +30,7 @@ class SignFormTemplate extends StatelessWidget {
           ),
           Container(
             height: screenSize.height * 0.55,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
             child: formSection,
           ),
           Padding(

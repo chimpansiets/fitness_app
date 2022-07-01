@@ -3,10 +3,12 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:fitness_app/application/authentication/authentication_cubit.dart';
 import 'package:fitness_app/domain/core/failures.dart';
 import 'package:fitness_app/injection.dart';
+import 'package:fitness_app/presentation/authentication/components/auth_form_header.dart';
 import 'package:fitness_app/presentation/authentication/components/auth_icon.dart';
 import 'package:fitness_app/presentation/authentication/components/login_form_field.dart';
+import 'package:fitness_app/presentation/authentication/pages/sign_in_page.dart';
 import 'package:fitness_app/presentation/core/components/primary_button.dart';
-import 'package:fitness_app/presentation/core/templates/sign_form_template.dart';
+import 'package:fitness_app/presentation/core/templates/auth_form_template.dart';
 import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,86 +46,66 @@ class SignUpPage extends StatelessWidget {
         },
       );
     }, builder: (context, state) {
-      return SignFormTemplate(
-        headerSection: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Hey there,',
-              style: TextStyle(
-                color: FitnessTheme.black,
-                fontSize: 16,
-              ),
-            ),
-            Text(
-              'Create an Account',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: FitnessTheme.black,
-              ),
-            ),
-          ],
+      return AuthFormTemplate(
+        headerSection: const AuthPageHeader(
+          firstText: 'Hey there,',
+          secondText: 'Create an Account',
         ),
-        formSection: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
-          child: Form(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: LoginFormField(
-                    hintText: 'First name',
-                    icon: Icons.person,
-                    firstNameController: firstNameController,
+        formSection: Form(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: LoginFormField(
+                  hintText: 'First name',
+                  icon: Icons.person,
+                  firstNameController: firstNameController,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: LoginFormField(
+                  hintText: 'Last name',
+                  icon: Icons.person,
+                  firstNameController: lastNameController,
+                  onChanged: (value) {
+                    getIt<AuthenticationCubit>().nameChanged(value);
+                  },
+                  validator: state.name.value.fold(
+                    (l) => (_) => 'Khuylo',
+                    (r) => (_) => null,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: LoginFormField(
-                    hintText: 'Last name',
-                    icon: Icons.person,
-                    firstNameController: lastNameController,
-                    onChanged: (value) {
-                      getIt<AuthenticationCubit>().nameChanged(value);
-                    },
-                    validator: state.name.value.fold(
-                      (l) => (_) => 'Khuylo',
-                      (r) => (_) => null,
-                    ),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: LoginFormField(
+                  hintText: 'Email',
+                  icon: Icons.mail,
+                  firstNameController: emailController,
+                  onChanged: (value) {
+                    getIt<AuthenticationCubit>().emailChanged(value);
+                  },
+                  validator: state.email.value
+                      .fold((l) => (_) => 'Invalid email', (r) => (_) => null),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: LoginFormField(
-                    hintText: 'Email',
-                    icon: Icons.mail,
-                    firstNameController: emailController,
-                    onChanged: (value) {
-                      getIt<AuthenticationCubit>().emailChanged(value);
-                    },
-                    validator: state.email.value.fold(
-                        (l) => (_) => 'Invalid email', (r) => (_) => null),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: LoginFormField(
+                  hideText: true,
+                  hintText: 'Password',
+                  icon: Icons.lock,
+                  firstNameController: passwordController,
+                  onChanged: (value) {
+                    getIt<AuthenticationCubit>().passwordChanged(value);
+                  },
+                  validator: state.password.value.fold(
+                      (l) => (_) => 'Password too short', (r) => (_) => null),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: LoginFormField(
-                    hideText: true,
-                    hintText: 'Password',
-                    icon: Icons.lock,
-                    firstNameController: passwordController,
-                    onChanged: (value) {
-                      getIt<AuthenticationCubit>().passwordChanged(value);
-                    },
-                    validator: state.password.value.fold(
-                        (l) => (_) => 'Password too short', (r) => (_) => null),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         buttonSection: PrimaryButton(
@@ -175,6 +157,10 @@ class SignUpPage extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       // TODO: Route to login page
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignInPage()),
+                      );
                     },
                     child: Text(
                       'Login',
