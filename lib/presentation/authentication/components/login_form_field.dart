@@ -33,10 +33,6 @@ class LoginFormField extends StatelessWidget {
           icon,
           color: FitnessTheme.gray1,
         ),
-        // icon: Icon(
-        //   icon,
-        //   color: FitnessTheme.gray1,
-        // ),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(15),

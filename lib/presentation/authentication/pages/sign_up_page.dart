@@ -6,6 +6,7 @@ import 'package:fitness_app/injection.dart';
 import 'package:fitness_app/presentation/authentication/components/auth_form_header.dart';
 import 'package:fitness_app/presentation/authentication/components/auth_icon.dart';
 import 'package:fitness_app/presentation/authentication/components/login_form_field.dart';
+import 'package:fitness_app/presentation/authentication/pages/complete_profile_page.dart';
 import 'package:fitness_app/presentation/authentication/pages/sign_in_page.dart';
 import 'package:fitness_app/presentation/core/components/primary_button.dart';
 import 'package:fitness_app/presentation/core/templates/auth_form_template.dart';
@@ -45,7 +46,13 @@ class SignUpPage extends StatelessWidget {
                 ).show(context);
               }
             },
-            (_) {},
+            (success) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CompleteProfilePage()),
+              );
+            },
           );
         },
       );

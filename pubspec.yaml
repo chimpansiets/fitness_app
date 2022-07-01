@@ -74,6 +74,8 @@ flutter:
     - assets/images/facebook-logo.svg
     - assets/images/google-logo.png
     - assets/images/facebook-logo.png
+    - assets/images/woman-working-out.svg
+    - assets/images/woman-working-out.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
