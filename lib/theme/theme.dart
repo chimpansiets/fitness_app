@@ -21,6 +21,7 @@ class FitnessTheme {
   static Color gray2 = const Color(0xFFADA4A5);
   static Color gray3 = const Color(0xFFDDDADA);
   static Color borderColor = const Color(0xFFF7F8F8);
+  static Color formFillColor = const Color(0xFFF7F8F8);
 
   static TextTheme poppins = GoogleFonts.poppinsTextTheme(
     TextTheme(

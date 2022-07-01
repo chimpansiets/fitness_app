@@ -27,11 +27,18 @@ class LoginFormField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       obscureText: hideText,
       decoration: InputDecoration(
-        icon: Icon(
+        filled: true,
+        fillColor: FitnessTheme.formFillColor,
+        prefixIcon: Icon(
           icon,
           color: FitnessTheme.gray1,
         ),
+        // icon: Icon(
+        //   icon,
+        //   color: FitnessTheme.gray1,
+        // ),
         border: OutlineInputBorder(
+          borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(15),
         ),
         hintText: hintText,
