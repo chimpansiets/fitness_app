@@ -3,6 +3,7 @@ import 'package:fitness_app/application/authentication/authentication_cubit.dart
 import 'package:fitness_app/application/onboarding/onboarding_cubit.dart';
 import 'package:fitness_app/firebase_options.dart';
 import 'package:fitness_app/injection.dart';
+import 'package:fitness_app/presentation/authentication/pages/complete_profile_page.dart';
 import 'package:fitness_app/presentation/onboarding/pages/welcome_page.dart';
 import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +34,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        initialRoute: 'onboarding',
+        initialRoute: 'completeProfile',
         routes: {
           'onboarding': (context) => const WelcomeScreen(),
+          'completeProfile': (context) => CompleteProfilePage(),
         },
         theme: ThemeData(
           textTheme: FitnessTheme.poppins,

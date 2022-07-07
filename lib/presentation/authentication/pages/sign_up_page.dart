@@ -49,8 +49,7 @@ class SignUpPage extends StatelessWidget {
             (success) {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const CompleteProfilePage()),
+                MaterialPageRoute(builder: (context) => CompleteProfilePage()),
               );
             },
           );
@@ -71,7 +70,7 @@ class SignUpPage extends StatelessWidget {
                 child: LoginFormField(
                   hintText: 'First name',
                   icon: Icons.person,
-                  firstNameController: firstNameController,
+                  controller: firstNameController,
                 ),
               ),
               Padding(
@@ -79,7 +78,7 @@ class SignUpPage extends StatelessWidget {
                 child: LoginFormField(
                   hintText: 'Last name',
                   icon: Icons.person,
-                  firstNameController: lastNameController,
+                  controller: lastNameController,
                   onChanged: (value) {
                     getIt<AuthenticationCubit>().nameChanged(value);
                   },
@@ -94,7 +93,7 @@ class SignUpPage extends StatelessWidget {
                 child: LoginFormField(
                   hintText: 'Email',
                   icon: Icons.mail,
-                  firstNameController: emailController,
+                  controller: emailController,
                   onChanged: (value) {
                     getIt<AuthenticationCubit>().emailChanged(value);
                   },
@@ -108,7 +107,7 @@ class SignUpPage extends StatelessWidget {
                   hideText: true,
                   hintText: 'Password',
                   icon: Icons.lock,
-                  firstNameController: passwordController,
+                  controller: passwordController,
                   onChanged: (value) {
                     getIt<AuthenticationCubit>().passwordChanged(value);
                   },

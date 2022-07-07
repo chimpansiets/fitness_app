@@ -1,10 +1,15 @@
-import 'package:fitness_app/presentation/authentication/components/auth_form_header.dart';
+import 'package:fitness_app/presentation/authentication/components/complete_profile_form_field.dart';
 import 'package:fitness_app/presentation/authentication/components/complete_profile_header.dart';
+import 'package:fitness_app/presentation/core/components/primary_button.dart';
+import 'package:fitness_app/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CompleteProfilePage extends StatelessWidget {
-  const CompleteProfilePage({Key? key}) : super(key: key);
+  CompleteProfilePage({Key? key}) : super(key: key);
+
+  TextEditingController birthController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+  TextEditingController heightController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +24,42 @@ class CompleteProfilePage extends StatelessWidget {
               secondText: 'It will help us get to know more about you!',
             ),
           ),
-          Column(
-            children: [],
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+            child: Column(
+              children: [
+                const CompleteProfileFormField(
+                  type: ProfileFormField.gender,
+                  icon: Icons.people,
+                  hintText: 'Choose Gender',
+                ),
+                CompleteProfileFormField(
+                  type: ProfileFormField.date,
+                  icon: Icons.calendar_month,
+                  hintText: 'Date of Birth',
+                  controller: birthController,
+                ),
+                CompleteProfileFormField(
+                  type: ProfileFormField.number,
+                  icon: Icons.scale,
+                  hintText: 'Your Weight',
+                  controller: weightController,
+                ),
+                CompleteProfileFormField(
+                  type: ProfileFormField.number,
+                  icon: Icons.swap_vert,
+                  hintText: 'Your Height',
+                  controller: heightController,
+                ),
+              ],
+            ),
+          ),
+          PrimaryButton(
+            gradient: FitnessTheme.blueLinear,
+            width: MediaQuery.of(context).size.width * 0.9,
+            onPressed: () {},
+            child: const Text('Next >'),
           ),
         ],
       ),

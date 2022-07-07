@@ -6,14 +6,14 @@ class LoginFormField extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.hintText,
-    required this.firstNameController,
+    required this.controller,
     this.hideText = false,
     this.onChanged,
     this.validator,
   }) : super(key: key);
 
   final bool hideText;
-  final TextEditingController firstNameController;
+  final TextEditingController controller;
   final IconData icon;
   final String hintText;
   final String? Function(String?)? validator;
@@ -40,7 +40,7 @@ class LoginFormField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(fontSize: 12, color: FitnessTheme.gray2),
       ),
-      controller: firstNameController,
+      controller: controller,
     );
   }
 }

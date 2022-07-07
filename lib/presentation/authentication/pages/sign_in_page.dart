@@ -58,7 +58,7 @@ class SignInPage extends StatelessWidget {
               LoginFormField(
                 icon: Icons.email,
                 hintText: 'Email',
-                firstNameController: emailController,
+                controller: emailController,
                 onChanged: (email) {
                   getIt<AuthenticationCubit>().emailChanged(email);
                 },
@@ -72,7 +72,7 @@ class SignInPage extends StatelessWidget {
                 child: LoginFormField(
                   icon: Icons.lock,
                   hintText: 'Password',
-                  firstNameController: passwordController,
+                  controller: passwordController,
                   hideText: true,
                   onChanged: (password) {
                     getIt<AuthenticationCubit>().passwordChanged(password);
